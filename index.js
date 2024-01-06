@@ -14,10 +14,10 @@ app.get("/download", async (req, res) => {
     if (!ytdl.validateURL(videoURL)) {
       return res.status(400).json({ error: "Invalid YouTube video URL" });
     }
-    const info = await ytdl.getInfo(videoURL);
-    console.log(info.videoDetails.title);
-    res.header('Content-Disposition', `attachment; filename="${info.videoDetails.title}.mp4"`);
-    res.header('Content-Type', 'video/mp4');
+    // const info = await ytdl.getInfo(videoURL);
+    // console.log(info.videoDetails.title);
+    // res.header('Content-Disposition', `attachment; filename="${info.videoDetails.title}.mp4"`);
+    // res.header('Content-Type', 'video/mp4');
     const videoStream = ytdl(videoURL, { format: "mp4" });
     videoStream.pipe(res);
   } catch (error) {
