@@ -11,6 +11,10 @@ const getProggress = (data, res) => {
   progress = data;
   res.send(progress);
 };
+
+app.get("/",(req,res)=>{
+  res.send({Success:"Working"})
+})
 app.get("/download", async (req, res) => {
   try {
     const videoURL = req.query.url;
